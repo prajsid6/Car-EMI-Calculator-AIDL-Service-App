@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
    public void CalculateEMI(View view){
        TextView textView = (TextView) findViewById(R.id.textView5);
-       TextView textView1 = (TextView) findViewById(R.id.textView4);
        TextView error = (TextView) findViewById(R.id.textViewError);
        EditText text1 = (EditText) findViewById(R.id.editTextNumberSigned);
        EditText text2 = (EditText) findViewById(R.id.editTextNumberSigned2);
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
            if(rate_of_interest==0 || principal_amount==0){
                error.setText(R.string.errormsg);
                textView.setText("");
-               textView1.setText("");
            }else {
                error.setText("");
 
@@ -75,8 +73,7 @@ public class MainActivity extends AppCompatActivity {
                }
                if(result==0 || result>1000000000) error.setText(R.string.errormsg);
 
-               textView1.setText(R.string.emi);
-               textView.setText(String.format("Only %s Rs/- ",result));
+               textView.setText(String.format("EMI: Only %s Rs/- ",result));
            }
        } catch (NumberFormatException e) {
            e.printStackTrace();
