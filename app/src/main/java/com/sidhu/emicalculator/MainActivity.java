@@ -71,9 +71,11 @@ public class MainActivity extends AppCompatActivity {
                } catch (RemoteException e) {
                    e.printStackTrace();
                }
-               if(result==0 || result>1000000000) error.setText(R.string.errormsg);
-
-               textView.setText(String.format("EMI: Only %s Rs/- ",result));
+               if(result==0 || result>1000000000 || rate_of_interest==0 || tenure_month==0) {
+                   error.setText(R.string.errormsg);
+                   textView.setText("");
+               }
+               else textView.setText(String.format("EMI: Only %s Rs/- ",result));
            }
        } catch (NumberFormatException e) {
            e.printStackTrace();
